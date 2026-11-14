@@ -48,7 +48,9 @@ const PAGE = `<!doctype html><html><body>
 
 const TRACK = JSON.stringify({ events: [
   { tStartMs: 0, dDurationMs: 2000, segs: [{ utf8: "Hello there." }] },
-  { tStartMs: 2000, dDurationMs: 1500, segs: [{ utf8: "How are you?" }] }
+  { tStartMs: 2000, dDurationMs: 1500, segs: [{ utf8: "How are you?" }] },
+  { tStartMs: 4000, dDurationMs: 1000, segs: [{ utf8: "[Music]" }] },
+  { tStartMs: 5000, dDurationMs: 1000, segs: [{ utf8: "Bye [Applause] now." }] }
 ] });
 
 (async () => {
@@ -96,6 +98,14 @@ const TRACK = JSON.stringify({ events: [
   console.log("on:", state, "origin headers", [...new Set(seen.originHeaders)]);
   if (state.cc !== "true" || !state.btnOn || !state.overlayVisible || !state.nativeHidden) throw new Error("bad ON state");
   await page.screenshot({ path: require("path").join(require("os").tmpdir(), "privatesubs-bar_on.png"), clip: { x: 0, y: 0, width: 660, height: 380 } });
+
+  // sound descriptions: [Music]-only cue shows nothing, inline tag removed
+  await page.evaluate(() => { document.querySelector("video").currentTime = 4.5; });
+  await page.waitForFunction(() => getComputedStyle(document.querySelector(".ytpl-overlay")).display === "none", null, { timeout: 5000 });
+  await page.evaluate(() => { document.querySelector("video").currentTime = 5.5; });
+  await page.waitForFunction(() => document.querySelector(".ytpl-line")?.textContent === "PL: Bye now.", null, { timeout: 10000 });
+  console.log("sound tags hidden ok");
+  await page.evaluate(() => { document.querySelector("video").currentTime = 2.5; });
 
   // click PL again → off: overlay gone, YouTube captions back
   await page.click(".ytpl-btn");

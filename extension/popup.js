@@ -14,6 +14,7 @@ async function load() {
   $("fontScale").value = settings.fontScale;
   $("fontScaleVal").textContent = Math.round(settings.fontScale * 100) + "%";
   $("showOriginal").checked = settings.showOriginal;
+  $("hideSoundTags").checked = settings.hideSoundTags;
   $("autoTranslate").checked = settings.autoTranslate;
   $("chunkSize").value = settings.chunkSize;
   refreshModels();
@@ -59,6 +60,7 @@ async function saveForm() {
     model: $("model").value.trim() || YTPL_DEFAULTS.model,
     fontScale: +$("fontScale").value,
     showOriginal: $("showOriginal").checked,
+    hideSoundTags: $("hideSoundTags").checked,
     autoTranslate: $("autoTranslate").checked,
     targetLang: $("targetLang").value,
     uiLang: $("uiLang").value,
@@ -123,6 +125,8 @@ $("uiLang").addEventListener("change", async (e) => {
   await save({ uiLang: e.target.value });
   location.reload(); // redraw the popup in the new language
 });
+$("hideSoundTags").addEventListener("change", (e) => save({ hideSoundTags: e.target.checked }));
+$("showOriginal").addEventListener("change", (e) => save({ showOriginal: e.target.checked }));
 $("autoTranslate").addEventListener("change", (e) => save({ autoTranslate: e.target.checked }));
 $("modelSelect").addEventListener("change", (e) => { if (e.target.value) $("model").value = e.target.value; });
 $("fontScale").addEventListener("input", (e) => {

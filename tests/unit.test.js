@@ -60,6 +60,27 @@ globalThis.chrome = { i18n: {
   assert.equal(r.cues[0].text, "It's fine");
   assert.equal(r.cues[0].start, 1500);
 
+  // --- sound descriptions ([Music], [Applause], ♪) are removed before translation and on display
+  const S = P.stripSoundTags;
+  assert.equal(S("chciałbym porozmawiać o recenzjach gry, [muzyka] mojej..."), "chciałbym porozmawiać o recenzjach gry, mojej...");
+  assert.equal(S("[Music]"), "");
+  assert.equal(S("♪ la la ♪"), "la la");
+  assert.equal(S("[Applause] Thank you [Laughter] ."), "Thank you.");
+  assert.equal(S("no tags here"), "no tags here");
+  const asrTags = { events: [
+    { tStartMs: 0, dDurationMs: 3000, segs: [{ utf8: "[Music]" }] },
+    { tStartMs: 3000, dDurationMs: 3000, segs: [{ utf8: "hello" }, { utf8: " [Music]", tOffsetMs: 300 }, { utf8: " world.", tOffsetMs: 600 }] }
+  ] };
+  const withTags = P.parseCaptions(JSON.stringify(asrTags), "https://x/api/timedtext?v=a&kind=asr");
+  const noTags = P.parseCaptions(JSON.stringify(asrTags), "https://x/api/timedtext?v=a&kind=asr", { stripSoundTags: true });
+  assert.ok(withTags.cues.some((c) => c.text.includes("[Music]")));
+  assert.deepEqual(noTags.cues.map((c) => c.text), ["hello world."]);
+  const manualTags = { events: [
+    { tStartMs: 0, dDurationMs: 1000, segs: [{ utf8: "♪ ♪" }] },
+    { tStartMs: 1000, dDurationMs: 1000, segs: [{ utf8: "[door slams] Who's there?" }] }
+  ] };
+  assert.deepEqual(P.parseCaptions(JSON.stringify(manualTags), "https://x/api/timedtext?v=a", { stripSoundTags: true }).cues.map((c) => c.text), ["Who's there?"]);
+
   // --- chunks prefer sentence ends
   const cues = Array.from({ length: 25 }, (_, i) => ({ start: i * 1000, end: i * 1000 + 900, text: i === 7 ? "end." : "word" }));
   const ch = P.makeChunks(cues, 10);

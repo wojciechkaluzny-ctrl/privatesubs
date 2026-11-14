@@ -38,8 +38,8 @@
     }
     applyStyle();
     updateButton();
-    if (ytplTargetLang(old) !== ytplTargetLang(settings)) {
-      // new target language: re-evaluate the last caption track from scratch
+    if (ytplTargetLang(old) !== ytplTargetLang(settings) || !!old.hideSoundTags !== !!settings.hideSoundTags) {
+      // new target language / sound-tag filter: re-evaluate the last caption track from scratch
       stopTrack();
       lastShown = null;
       if (S.lastRaw) onCaptions(S.lastRaw.url, S.lastRaw.text);
@@ -100,7 +100,7 @@
     const vid = currentVideoId();
     if (!vid) return;
     let parsed;
-    try { parsed = P.parseCaptions(text, url); } catch (_) { return; }
+    try { parsed = P.parseCaptions(text, url, { stripSoundTags: !!settings.hideSoundTags }); } catch (_) { return; }
     if (!parsed.cues.length) return;
     if (parsed.videoId && parsed.videoId !== vid) return; // e.g. hover preview of another video
     S.lastRaw = { url, text };
@@ -108,7 +108,7 @@
     // Already in the target language (original track or YouTube's own auto-translate) – let YouTube show it.
     if (isTarget(parsed.tlang) || (!parsed.tlang && isTarget(parsed.lang))) { stopTrack(); return; }
 
-    const key = [vid, parsed.lang, parsed.kind, parsed.tlang || "", tgt()].join("|");
+    const key = [vid, parsed.lang, parsed.kind, parsed.tlang || "", tgt(), settings.hideSoundTags ? "nt" : "t"].join("|");
     if (S.track && S.track.key === key) return;
     startTrack({
       key, videoId: vid,
@@ -306,11 +306,13 @@
     if (i < 0) {
       overlay.style.display = "none";
     } else {
-      const tr = S.tr[i];
-      const orig = t.cues[i].text;
+      // the model may still produce sound tags (or they come from an older cache) – filter on display too
+      const tidy = (s) => (settings.hideSoundTags ? P.stripSoundTags(s) : s);
+      const tr = S.tr[i] == null ? null : tidy(S.tr[i]);
+      const orig = tidy(t.cues[i].text);
       if (tr) setText(tr, settings.showOriginal ? orig : "", false);
-      else setText(orig, "", true); // not translated yet → original, dimmed
-      overlay.style.display = "block";
+      else if (tr == null && orig) setText(orig, "", true); // not translated yet → original, dimmed
+      overlay.style.display = tr || (tr == null && orig) ? "block" : "none";
     }
 
     // status badge

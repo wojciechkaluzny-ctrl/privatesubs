@@ -8,6 +8,7 @@ var YTPL_DEFAULTS = {
   chunkSize: 30,          // how many subtitle lines go to the model in one request
   fontScale: 1,           // subtitle size multiplier
   showOriginal: false,    // show the original line under the translated one
+  hideSoundTags: true,    // remove [Music], [Applause], ♪ … from subtitles
   autoTranslate: false    // false = translate only after clicking the language button in the player
 };
 

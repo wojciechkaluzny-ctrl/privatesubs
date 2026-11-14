@@ -124,6 +124,7 @@ See [docs/how-it-works.md](docs/how-it-works.md) for the details.
 | Model | Any model installed in Ollama |
 | Subtitle size | Scales the translated subtitles |
 | Also show the original line below | Dual subtitles, which is handy for language learning |
+| Hide sound descriptions | Removes `[Music]`, `[Applause]`, `♪`… from subtitles (on by default) |
 | Translate every video automatically | Turns translation on for every video without clicking the button |
 | Lines per request | Batch size sent to the model (smaller is more robust, larger is faster) |
 | Test translation / Translate again / Clear cache / Setup | Utilities |

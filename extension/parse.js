@@ -15,6 +15,16 @@
 
   const clean = (s) => s.replace(/\s+/g, " ").trim();
 
+  // Sound descriptions added by YouTube (mostly auto-captions): [Music], [Applause], [Laughter], ♪ …
+  // Also used on translated text, where they come back as e.g. [muzyka], [Oklaski].
+  function stripSoundTags(s) {
+    return clean(String(s || "")
+      .replace(/\[[^\[\]\n]{0,60}\]/g, " ")
+      .replace(/[♪♫♬🎵🎶]/g, " "))
+      .replace(/\s+([,.!?;:…])/g, "$1")
+      .replace(/^[,.;:…\s-]+(?=\S)/, "");
+  }
+
   function readParams(url) {
     let p;
     try { p = new URL(url).searchParams; } catch { p = new URLSearchParams(""); }
@@ -99,13 +109,17 @@
     return cues;
   }
 
-  function parseCaptions(text, url) {
+  // opts.stripSoundTags: drop [Music]-style descriptions (and cues that contain nothing else)
+  function parseCaptions(text, url, opts) {
     const info = readParams(url);
     const isAsr = info.kind === "asr";
     const body = String(text || "").trim();
     let cues = [];
     if (body.startsWith("{")) cues = fromJson3(JSON.parse(body), isAsr);
     else if (body.startsWith("<")) cues = fromXml(body);
+    if (opts && opts.stripSoundTags) {
+      cues = cues.map((c) => Object.assign(c, { text: stripSoundTags(c.text) })).filter((c) => c.text);
+    }
     cues.sort((a, b) => a.start - b.start);
     return Object.assign(info, { cues });
   }
@@ -148,5 +162,5 @@
     return chunks;
   }
 
-  root.YTPL_parse = { parseCaptions, cueAt, cueBefore, makeChunks };
+  root.YTPL_parse = { parseCaptions, stripSoundTags, cueAt, cueBefore, makeChunks };
 })(typeof globalThis !== "undefined" ? globalThis : this);

@@ -124,6 +124,7 @@ Szczegóły znajdziesz w [docs/how-it-works.md](docs/how-it-works.md) (po angiel
 | Model | Dowolny model zainstalowany w Ollamie |
 | Rozmiar napisów | Skala przetłumaczonych napisów |
 | Pokazuj też oryginał pod spodem | Podwójne napisy, przydatne do nauki języków |
+| Ukrywaj opisy dźwięków | Usuwa z napisów `[Muzyka]`, `[Oklaski]`, `♪`… (domyślnie włączone) |
 | Tłumacz każdy film automatycznie | Włącza tłumaczenie na każdym filmie bez klikania przycisku |
 | Linii na jedno zapytanie | Ile linii trafia do modelu naraz (mniej to stabilniej, więcej to szybciej) |
 | Test tłumaczenia / Przetłumacz ponownie / Wyczyść cache / Kreator | Narzędzia |

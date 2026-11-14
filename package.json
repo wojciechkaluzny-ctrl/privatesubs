@@ -1,6 +1,6 @@
 {
   "name": "privatesubs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Browser extension that translates YouTube subtitles with a local AI model (Ollama).",
   "license": "MIT",

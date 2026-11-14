@@ -155,6 +155,9 @@
   "lblShowOriginal": {
     "message": "Also show the original line below"
   },
+  "lblHideSoundTags": {
+    "message": "Hide sound descriptions such as [Music] or [Applause]"
+  },
   "lblAutoTranslate": {
     "message": "Translate every video automatically (no button click)"
   },

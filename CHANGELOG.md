@@ -5,6 +5,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [1.0.1] – 2026-11-14
+
+### Added
+- Option "Hide sound descriptions such as [Music] or [Applause]" (on by default).
+
+### Fixed
+- Sound descriptions from auto-generated captions (`[Music]`, `[Applause]`, `♪` …) were translated and shown as
+  e.g. `[muzyka]`. They are now removed before translation, and from cached or translated text on display.
+
 ## [1.0.0] – 2026-11-14
 
 First public release.
@@ -22,5 +31,6 @@ First public release.
 - English and Polish user interface. It follows the browser language by default and can be changed in the popup.
 - Unit and end-to-end tests (Playwright, mocked YouTube page and Ollama).
 
-[Unreleased]: https://github.com/wojciechkaluzny-ctrl/privatesubs/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/wojciechkaluzny-ctrl/privatesubs/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/wojciechkaluzny-ctrl/privatesubs/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/wojciechkaluzny-ctrl/privatesubs/releases/tag/v1.0.0

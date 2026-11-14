@@ -155,6 +155,9 @@
   "lblShowOriginal": {
     "message": "Pokazuj też oryginał pod spodem"
   },
+  "lblHideSoundTags": {
+    "message": "Ukrywaj opisy dźwięków, np. [Muzyka], [Oklaski]"
+  },
   "lblAutoTranslate": {
     "message": "Tłumacz każdy film automatycznie (bez klikania przycisku)"
   },
