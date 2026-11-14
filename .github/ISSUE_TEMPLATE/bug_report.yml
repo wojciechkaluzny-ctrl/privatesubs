@@ -1,0 +1,40 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead? Include the message from the popup or the player, if any.
+    validations:
+      required: true
+  - type: input
+    id: video
+    attributes:
+      label: Link to a video where it happens
+      placeholder: https://www.youtube.com/watch?v=...
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Chrome 142 / Edge 142 / Opera 125
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Windows 11 / macOS 15 / Ubuntu 24.04
+  - type: input
+    id: ollama
+    attributes:
+      label: Ollama version and model
+      description: Output of `ollama --version` and the model selected in the popup
+      placeholder: ollama 0.33.0, translategemma:4b
+  - type: input
+    id: version
+    attributes:
+      label: PrivateSubs version
+      description: Shown on the extensions page of your browser
+      placeholder: 1.0.0

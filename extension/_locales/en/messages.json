@@ -1,0 +1,440 @@
+{
+  "extName": {
+    "message": "PrivateSubs"
+  },
+  "extDescription": {
+    "message": "Translate YouTube subtitles into your language with a local AI model (Ollama). Nothing leaves your computer."
+  },
+  "cmdToggle": {
+    "message": "Toggle subtitle translation on the current video"
+  },
+  "badgeTranslating": {
+    "message": "$P1$: translating… $P2$%",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "badgeError": {
+    "message": "$P1$ ⚠ $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "toastNoCaptions": {
+    "message": "$P1$ ⚠ This video has no subtitles to translate",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastWaiting": {
+    "message": "$P1$: waiting for the video's subtitles…",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastOn": {
+    "message": "$P1$: translation on",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastOff": {
+    "message": "$P1$: translation off",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "btnTipTurnOff": {
+    "message": "Subtitles: $P1$ – turn translation off (Alt+Shift+P)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "btnTipTurnOn": {
+    "message": "Subtitles: $P1$ – turn translation on (Alt+Shift+P)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errReloaded": {
+    "message": "The extension was reloaded – refresh this page."
+  },
+  "errNoResponse": {
+    "message": "No response from the extension"
+  },
+  "errModelMissing": {
+    "message": "Model “$P1$” is not downloaded – click the extension icon → “Setup” to get it (or run: ollama pull $P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "err403": {
+    "message": "Ollama refused the connection (403). Set the environment variable OLLAMA_ORIGINS=chrome-extension://* and restart Ollama."
+  },
+  "errHttp": {
+    "message": "Ollama HTTP $P1$: $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "errTimeout": {
+    "message": "Ollama did not respond in time (is the model too large or too slow for this computer?)"
+  },
+  "errNoConnection": {
+    "message": "Cannot connect to Ollama at $P1$. Is it running? Click the extension icon → “Setup”.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupToggleTitle": {
+    "message": "Turn the whole extension on or off"
+  },
+  "lblTarget": {
+    "message": "Translate subtitles into"
+  },
+  "optBrowserLang": {
+    "message": "Same as browser ($P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "lblUiLang": {
+    "message": "Interface language"
+  },
+  "optUiAuto": {
+    "message": "Automatic (browser language)"
+  },
+  "lblOllamaUrl": {
+    "message": "Ollama address"
+  },
+  "lblModel": {
+    "message": "Model"
+  },
+  "btnRefreshModels": {
+    "message": "Refresh model list"
+  },
+  "hintModel": {
+    "message": "Recommended: translategemma:4b (fast) or translategemma:12b (better, ~8 GB)."
+  },
+  "lblFontSize": {
+    "message": "Subtitle size:"
+  },
+  "lblShowOriginal": {
+    "message": "Also show the original line below"
+  },
+  "lblAutoTranslate": {
+    "message": "Translate every video automatically (no button click)"
+  },
+  "lblChunk": {
+    "message": "Lines per request"
+  },
+  "btnSave": {
+    "message": "Save"
+  },
+  "btnTest": {
+    "message": "Test translation"
+  },
+  "btnRetry": {
+    "message": "Translate again"
+  },
+  "btnClearCache": {
+    "message": "Clear cache"
+  },
+  "btnWizard": {
+    "message": "Setup"
+  },
+  "btnWizardBig": {
+    "message": "Install Ollama and a model (setup)"
+  },
+  "msgNoPermission": {
+    "message": "Without access to $P1$ the extension cannot connect to that address.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "msgSaved": {
+    "message": "Saved."
+  },
+  "msgCacheCleared": {
+    "message": "Cache cleared."
+  },
+  "msgTesting": {
+    "message": "Translating (the first run loads the model – this can take a while)…"
+  },
+  "optOllamaDown": {
+    "message": "— Ollama not available —"
+  },
+  "optNoModels": {
+    "message": "— no models: ollama pull translategemma:4b —"
+  },
+  "optPickModel": {
+    "message": "(pick a downloaded model)"
+  },
+  "stOpenYouTube": {
+    "message": "Open a video on YouTube."
+  },
+  "stOpenVideo": {
+    "message": "Open a specific video on YouTube."
+  },
+  "stDisabled": {
+    "message": "Disabled."
+  },
+  "stOffForVideo": {
+    "message": "Off for this video – click “$P1$” in the player (or Alt+Shift+P).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "stWaiting": {
+    "message": "Waiting for the video's subtitles…"
+  },
+  "stDone": {
+    "message": "Done ✓ $P1$ lines ($P2$ → $P3$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "stError": {
+    "message": "Error: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "stTranslating": {
+    "message": "Translating $P1$ → $P2$: $P3$/$P4$ ($P5$%)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      },
+      "p4": {
+        "content": "$4"
+      },
+      "p5": {
+        "content": "$5"
+      }
+    }
+  },
+  "setupTitle": {
+    "message": "PrivateSubs – setup"
+  },
+  "setupSub": {
+    "message": "This wizard prepares a local translator. Everything runs on your computer – subtitles are never sent to the internet."
+  },
+  "s1Title": {
+    "message": "Ollama engine"
+  },
+  "s1Checking": {
+    "message": "Checking whether Ollama is already installed…"
+  },
+  "s1Ok": {
+    "message": "Ollama is running"
+  },
+  "s1Version": {
+    "message": "(version $P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "s1NotInstalled": {
+    "message": "Ollama is not installed yet."
+  },
+  "s1NotInstalledDl": {
+    "message": "Ollama is not installed yet. Click the button and the wizard will download the installer$P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "s1SizeWin": {
+    "message": " (about 1.5 GB)"
+  },
+  "btnDownloadOllama": {
+    "message": "Download Ollama"
+  },
+  "btnRunInstaller": {
+    "message": "Run the installer"
+  },
+  "dlProgress": {
+    "message": "$P1$ of $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "dlDone": {
+    "message": "Downloaded."
+  },
+  "dlStartFailed": {
+    "message": "Could not start the download: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "dlInterrupted": {
+    "message": "Download interrupted ($P1$). Please try again.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "afterWin": {
+    "message": "Windows may ask for permission – confirm it. Installation takes about a minute, then Ollama starts by itself (icon next to the clock)."
+  },
+  "afterMac": {
+    "message": "A window will open – drag the Ollama icon into Applications, then start Ollama from Applications."
+  },
+  "runFallback": {
+    "message": "Can't open the file directly – the downloads folder is open, double-click $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "linuxText": {
+    "message": "On Linux the browser cannot run the installer. Paste this one line into a terminal:"
+  },
+  "waitingOllama": {
+    "message": "Waiting for Ollama to start… the wizard will continue by itself."
+  },
+  "checkNow": {
+    "message": "Check now"
+  },
+  "s2Title": {
+    "message": "Translation model"
+  },
+  "m4Desc": {
+    "message": "– about 3.3 GB. Fast, runs on most computers."
+  },
+  "m12Desc": {
+    "message": "– about 8 GB. Better translations, needs a graphics card with ~12 GB of memory."
+  },
+  "btnPull": {
+    "message": "Download model"
+  },
+  "pullConnecting": {
+    "message": "Connecting…"
+  },
+  "pullVerifying": {
+    "message": "Verifying downloaded files…"
+  },
+  "pullDone": {
+    "message": "Downloaded."
+  },
+  "pullError": {
+    "message": "Download error: $P1$. Click again – the download will resume.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "pullInterrupted": {
+    "message": "the connection was interrupted"
+  },
+  "pullKeepOpen": {
+    "message": "Don't close this tab while downloading. An interrupted download resumes where it stopped."
+  },
+  "s2Have": {
+    "message": "Model $P1$ is already downloaded.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "s3Title": {
+    "message": "Ready"
+  },
+  "s3Warming": {
+    "message": "Warming up the model with a test translation…"
+  },
+  "s3TestOk": {
+    "message": "Test translation ($P1$ s): “$P2$”",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "s3TestFail": {
+    "message": "Test translation failed: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "s3Info": {
+    "message": "Open a video on YouTube and click the language button (e.g. EN) in the player bar – subtitles will be translated automatically. Change the target language with the extension icon. Alt+Shift+P works like clicking the button."
+  },
+  "btnOpenYT": {
+    "message": "Open YouTube"
+  }
+}

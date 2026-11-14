@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PrivateSubs</title>
+<style>
+  :root { accent-color: #0d9488; }
+  :root { --red: #0d9488; --ok: #1a8f3c; }
+  body { margin: 0; font: 15px/1.5 system-ui, Segoe UI, Roboto, sans-serif; background: #f4f4f6; color: #1d1d1f; }
+  .wrap { max-width: 620px; margin: 40px auto; padding: 0 20px; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  .sub { color: #666; margin-bottom: 24px; }
+  .step { background: #fff; border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.06); opacity: .5; }
+  .step.active, .step.done { opacity: 1; }
+  .step h2 { font-size: 16px; margin: 0 0 6px; display: flex; align-items: center; gap: 10px; }
+  .num { width: 26px; height: 26px; border-radius: 50%; background: #ddd; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; flex: none; }
+  .active .num { background: var(--red); color: #fff; }
+  .done .num { background: var(--ok); color: #fff; }
+  .done .num::after { content: "✓"; } .done .num span { display: none; }
+  button { font: inherit; font-weight: 600; padding: 9px 16px; border-radius: 8px; border: 0; background: var(--red); color: #fff; cursor: pointer; }
+  button.ghost { background: #fff; color: #333; border: 1px solid #ccc; font-weight: 500; }
+  button:disabled { opacity: .5; cursor: default; }
+  .bar { height: 8px; background: #e6e6e9; border-radius: 4px; overflow: hidden; margin: 10px 0 4px; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--red); transition: width .3s; }
+  .muted { color: #666; font-size: 13px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
+  .models label { display: flex; gap: 8px; align-items: flex-start; padding: 8px 10px; border: 1px solid #e3e3e6; border-radius: 8px; margin-top: 6px; cursor: pointer; }
+  code { background: #f0f0f2; padding: 2px 6px; border-radius: 4px; font-size: 13px; user-select: all; }
+  .err { color: #a11; }
+  .hidden { display: none !important; }
+  .final { font-size: 16px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 data-i18n="setupTitle"></h1>
+  <div class="sub" data-i18n="setupSub"></div>
+
+  <section class="step" id="s1">
+    <h2><span class="num"><span>1</span></span> <span data-i18n="s1Title"></span></h2>
+    <div id="s1-checking" class="muted" data-i18n="s1Checking"></div>
+    <div id="s1-ok" class="hidden"><span data-i18n="s1Ok"></span> <span id="s1-ver" class="muted"></span></div>
+
+    <div id="s1-install" class="hidden">
+      <p id="s1-text"></p>
+      <div class="row">
+        <button id="dl" data-i18n="btnDownloadOllama"></button>
+        <button id="run" class="hidden" data-i18n="btnRunInstaller"></button>
+      </div>
+      <div id="dl-progress" class="hidden">
+        <div class="bar"><i id="dl-bar"></i></div>
+        <div class="muted" id="dl-text"></div>
+      </div>
+      <p id="s1-after" class="muted hidden"></p>
+      <div id="s1-linux" class="hidden">
+        <p data-i18n="linuxText"></p>
+        <code>curl -fsSL https://ollama.com/install.sh | sh</code>
+      </div>
+      <p class="muted"><span data-i18n="waitingOllama"></span> <a href="#" id="recheck" data-i18n="checkNow"></a></p>
+    </div>
+  </section>
+
+  <section class="step" id="s2">
+    <h2><span class="num"><span>2</span></span> <span data-i18n="s2Title"></span></h2>
+    <div id="s2-body" class="hidden">
+      <div class="models">
+        <label><input type="radio" name="m" value="translategemma:4b" checked>
+          <span><b>TranslateGemma 4B</b> <span data-i18n="m4Desc"></span></span></label>
+        <label><input type="radio" name="m" value="translategemma:12b">
+          <span><b>TranslateGemma 12B</b> <span data-i18n="m12Desc"></span></span></label>
+      </div>
+      <div class="row"><button id="pull" data-i18n="btnPull"></button></div>
+      <div id="pull-progress" class="hidden">
+        <div class="bar"><i id="pull-bar"></i></div>
+        <div class="muted" id="pull-text"></div>
+      </div>
+      <p class="muted" data-i18n="pullKeepOpen"></p>
+    </div>
+    <div id="s2-have" class="hidden"></div>
+  </section>
+
+  <section class="step" id="s3">
+    <h2><span class="num"><span>3</span></span> <span data-i18n="s3Title"></span></h2>
+    <div id="s3-body" class="hidden final">
+      <p id="s3-test" class="muted" data-i18n="s3Warming"></p>
+      <p data-i18n="s3Info"></p>
+      <button id="yt" data-i18n="btnOpenYT"></button>
+    </div>
+  </section>
+</div>
+<script src="defaults.js"></script>
+<script src="i18n.js"></script>
+<script src="setup.js"></script>
+</body>
+</html>

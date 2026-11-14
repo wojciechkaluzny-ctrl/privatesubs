@@ -1,0 +1,26 @@
+{
+  "name": "privatesubs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Browser extension that translates YouTube subtitles with a local AI model (Ollama).",
+  "license": "MIT",
+  "author": "Wojciech Kaluzny",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wojciechkaluzny-ctrl/privatesubs.git"
+  },
+  "homepage": "https://github.com/wojciechkaluzny-ctrl/privatesubs",
+  "scripts": {
+    "test": "node tests/unit.test.js",
+    "test:e2e": "node tests/e2e.test.js && node tests/popup.test.js && node tests/setup.test.js",
+    "test:all": "npm test && npm run test:e2e",
+    "package": "node scripts/package.js",
+    "screenshots": "node scripts/screenshots.js en && node scripts/screenshots.js pl"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

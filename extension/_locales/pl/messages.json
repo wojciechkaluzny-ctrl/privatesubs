@@ -1,0 +1,440 @@
+{
+  "extName": {
+    "message": "PrivateSubs"
+  },
+  "extDescription": {
+    "message": "Tłumaczy napisy z YouTube na Twój język lokalnym modelem AI (Ollama). Nic nie opuszcza Twojego komputera."
+  },
+  "cmdToggle": {
+    "message": "Włącz / wyłącz tłumaczenie napisów na tym filmie"
+  },
+  "badgeTranslating": {
+    "message": "$P1$: tłumaczę… $P2$%",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "badgeError": {
+    "message": "$P1$ ⚠ $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "toastNoCaptions": {
+    "message": "$P1$ ⚠ Ten film nie ma napisów do przetłumaczenia",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastWaiting": {
+    "message": "$P1$: czekam na napisy filmu…",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastOn": {
+    "message": "$P1$: tłumaczenie włączone",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastOff": {
+    "message": "$P1$: tłumaczenie wyłączone",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "btnTipTurnOff": {
+    "message": "Napisy: $P1$ – wyłącz tłumaczenie (Alt+Shift+P)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "btnTipTurnOn": {
+    "message": "Napisy: $P1$ – włącz tłumaczenie (Alt+Shift+P)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errReloaded": {
+    "message": "Wtyczka została przeładowana – odśwież stronę."
+  },
+  "errNoResponse": {
+    "message": "Brak odpowiedzi od wtyczki"
+  },
+  "errModelMissing": {
+    "message": "Model „$P1$” nie jest pobrany – ikona wtyczki → „Kreator” go pobierze (lub: ollama pull $P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "err403": {
+    "message": "Ollama odrzuca połączenie (403). Ustaw zmienną OLLAMA_ORIGINS=chrome-extension://* i zrestartuj Ollamę."
+  },
+  "errHttp": {
+    "message": "Ollama HTTP $P1$: $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "errTimeout": {
+    "message": "Ollama nie odpowiedziała w czasie (model za duży lub za wolny dla tego komputera?)"
+  },
+  "errNoConnection": {
+    "message": "Brak połączenia z Ollamą pod $P1$. Czy jest uruchomiona? Kliknij ikonę wtyczki → „Kreator”.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupToggleTitle": {
+    "message": "Włącz lub wyłącz całą wtyczkę"
+  },
+  "lblTarget": {
+    "message": "Tłumacz napisy na"
+  },
+  "optBrowserLang": {
+    "message": "Jak przeglądarka ($P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "lblUiLang": {
+    "message": "Język wtyczki (interface language)"
+  },
+  "optUiAuto": {
+    "message": "Automatyczny (język przeglądarki)"
+  },
+  "lblOllamaUrl": {
+    "message": "Adres Ollamy"
+  },
+  "lblModel": {
+    "message": "Model"
+  },
+  "btnRefreshModels": {
+    "message": "Odśwież listę modeli"
+  },
+  "hintModel": {
+    "message": "Polecany: translategemma:4b (szybki) lub translategemma:12b (lepszy, ~8 GB)."
+  },
+  "lblFontSize": {
+    "message": "Rozmiar napisów:"
+  },
+  "lblShowOriginal": {
+    "message": "Pokazuj też oryginał pod spodem"
+  },
+  "lblAutoTranslate": {
+    "message": "Tłumacz każdy film automatycznie (bez klikania przycisku)"
+  },
+  "lblChunk": {
+    "message": "Linii na jedno zapytanie"
+  },
+  "btnSave": {
+    "message": "Zapisz"
+  },
+  "btnTest": {
+    "message": "Test tłumaczenia"
+  },
+  "btnRetry": {
+    "message": "Przetłumacz ponownie"
+  },
+  "btnClearCache": {
+    "message": "Wyczyść cache"
+  },
+  "btnWizard": {
+    "message": "Kreator"
+  },
+  "btnWizardBig": {
+    "message": "Zainstaluj Ollamę i model (kreator)"
+  },
+  "msgNoPermission": {
+    "message": "Bez zgody na dostęp do $P1$ wtyczka nie połączy się z tym adresem.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "msgSaved": {
+    "message": "Zapisano."
+  },
+  "msgCacheCleared": {
+    "message": "Cache wyczyszczony."
+  },
+  "msgTesting": {
+    "message": "Tłumaczę (pierwsze uruchomienie ładuje model – może potrwać)…"
+  },
+  "optOllamaDown": {
+    "message": "— Ollama niedostępna —"
+  },
+  "optNoModels": {
+    "message": "— brak modeli: ollama pull translategemma:4b —"
+  },
+  "optPickModel": {
+    "message": "(wybierz pobrany model)"
+  },
+  "stOpenYouTube": {
+    "message": "Otwórz film na YouTube."
+  },
+  "stOpenVideo": {
+    "message": "Otwórz konkretny film na YouTube."
+  },
+  "stDisabled": {
+    "message": "Wyłączone."
+  },
+  "stOffForVideo": {
+    "message": "Wyłączone dla tego filmu – kliknij „$P1$” w odtwarzaczu (lub Alt+Shift+P).",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "stWaiting": {
+    "message": "Czekam na napisy filmu…"
+  },
+  "stDone": {
+    "message": "Gotowe ✓ $P1$ linii ($P2$ → $P3$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "stError": {
+    "message": "Błąd: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "stTranslating": {
+    "message": "Tłumaczę $P1$ → $P2$: $P3$/$P4$ ($P5$%)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      },
+      "p4": {
+        "content": "$4"
+      },
+      "p5": {
+        "content": "$5"
+      }
+    }
+  },
+  "setupTitle": {
+    "message": "PrivateSubs – instalacja"
+  },
+  "setupSub": {
+    "message": "Kreator przygotuje lokalny tłumacz. Wszystko działa na Twoim komputerze, bez wysyłania napisów do internetu."
+  },
+  "s1Title": {
+    "message": "Silnik Ollama"
+  },
+  "s1Checking": {
+    "message": "Sprawdzam, czy Ollama jest już zainstalowana…"
+  },
+  "s1Ok": {
+    "message": "Ollama działa"
+  },
+  "s1Version": {
+    "message": "(wersja $P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "s1NotInstalled": {
+    "message": "Ollama nie jest jeszcze zainstalowana."
+  },
+  "s1NotInstalledDl": {
+    "message": "Ollama nie jest jeszcze zainstalowana. Kliknij, a kreator pobierze instalator$P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "s1SizeWin": {
+    "message": " (ok. 1,5 GB)"
+  },
+  "btnDownloadOllama": {
+    "message": "Pobierz Ollamę"
+  },
+  "btnRunInstaller": {
+    "message": "Uruchom instalator"
+  },
+  "dlProgress": {
+    "message": "$P1$ z $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "dlDone": {
+    "message": "Pobrano."
+  },
+  "dlStartFailed": {
+    "message": "Nie udało się rozpocząć pobierania: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "dlInterrupted": {
+    "message": "Pobieranie przerwane ($P1$). Spróbuj ponownie.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "afterWin": {
+    "message": "Po kliknięciu Windows może zapytać o zgodę – potwierdź. Instalacja trwa około minuty, potem Ollama uruchomi się sama (ikona przy zegarze)."
+  },
+  "afterMac": {
+    "message": "Otworzy się okno – przeciągnij ikonę Ollamy do folderu Aplikacje, a potem uruchom Ollamę z Aplikacji."
+  },
+  "runFallback": {
+    "message": "Nie mogę uruchomić pliku bezpośrednio – otworzyłem folder pobierania, kliknij dwukrotnie $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "linuxText": {
+    "message": "Na Linuksie przeglądarka nie może uruchomić instalatora. Wklej w terminalu jedną linię:"
+  },
+  "waitingOllama": {
+    "message": "Czekam na uruchomienie Ollamy… kreator przejdzie dalej sam."
+  },
+  "checkNow": {
+    "message": "Sprawdź teraz"
+  },
+  "s2Title": {
+    "message": "Model tłumaczący"
+  },
+  "m4Desc": {
+    "message": "– ok. 3,3 GB. Szybki, działa na większości komputerów."
+  },
+  "m12Desc": {
+    "message": "– ok. 8 GB. Lepsze tłumaczenia, wymaga karty graficznej z ~12 GB pamięci."
+  },
+  "btnPull": {
+    "message": "Pobierz model"
+  },
+  "pullConnecting": {
+    "message": "Łączę się…"
+  },
+  "pullVerifying": {
+    "message": "Sprawdzam pobrane pliki…"
+  },
+  "pullDone": {
+    "message": "Pobrano."
+  },
+  "pullError": {
+    "message": "Błąd pobierania: $P1$. Kliknij ponownie, pobieranie się wznowi.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "pullInterrupted": {
+    "message": "połączenie zostało przerwane"
+  },
+  "pullKeepOpen": {
+    "message": "Nie zamykaj tej karty w trakcie pobierania. Przerwane pobieranie wznowi się od miejsca, w którym stanęło."
+  },
+  "s2Have": {
+    "message": "Model $P1$ jest już pobrany.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "s3Title": {
+    "message": "Gotowe"
+  },
+  "s3Warming": {
+    "message": "Rozgrzewam model próbnym tłumaczeniem…"
+  },
+  "s3TestOk": {
+    "message": "Test tłumaczenia ($P1$ s): „$P2$”",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "s3TestFail": {
+    "message": "Test tłumaczenia nie wyszedł: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "s3Info": {
+    "message": "Otwórz film na YouTube i kliknij przycisk z kodem języka (np. PL) w pasku odtwarzacza – napisy przetłumaczą się same. Język docelowy zmienisz w ikonie wtyczki. Skrót Alt+Shift+P działa jak kliknięcie przycisku."
+  },
+  "btnOpenYT": {
+    "message": "Otwórz YouTube"
+  }
+}

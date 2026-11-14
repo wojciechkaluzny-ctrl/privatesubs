@@ -1,0 +1,105 @@
+/* Hide YouTube's own captions while the Polish overlay is active */
+.ytpl-on .ytp-caption-window-container,
+.ytpl-on .caption-window {
+  visibility: hidden !important;
+}
+
+.ytpl-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 62px;
+  transform: translateX(-50%);
+  width: 86%;
+  z-index: 40;
+  pointer-events: none;
+  text-align: center;
+  display: none;
+  font-family: "YouTube Noto", Roboto, Arial, sans-serif;
+  line-height: 1.32;
+  transition: bottom 0.15s ease;
+}
+.ytp-autohide .ytpl-overlay { bottom: 22px; }
+
+.ytpl-line,
+.ytpl-orig {
+  display: inline;
+  background: rgba(8, 8, 8, 0.78);
+  color: #fff;
+  padding: 0.08em 0.35em;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  white-space: pre-wrap;
+}
+.ytpl-orig {
+  display: block;
+  width: fit-content;
+  margin: 0.25em auto 0;
+  font-size: 0.68em;
+  color: #cfcfcf;
+}
+.ytpl-pending {
+  color: #bdbdbd;
+  font-style: italic;
+}
+
+.ytpl-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 41;
+  pointer-events: none;
+  max-width: 60%;
+  font: 500 12px/1.3 Roboto, Arial, sans-serif;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: none;
+}
+.ytpl-badge.ytpl-err { background: rgba(160, 30, 30, 0.85); }
+
+/* "PL" button in the player controls */
+.ytpl-btn {
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0;
+  margin: 0;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  opacity: 0.9;
+}
+.ytpl-btn:hover { opacity: 1; }
+.ytpl-btn-icon { width: 24px; height: 24px; overflow: visible; pointer-events: none; }
+.ytpl-btn-box { fill: none; stroke: #fff; stroke-width: 1.9; transition: fill 0.15s; }
+.ytpl-btn-text {
+  fill: #fff;
+  font: 700 8.6px/1 Roboto, Arial, sans-serif;
+  letter-spacing: 0.2px;
+  transition: fill 0.15s;
+}
+.ytpl-btn-on .ytpl-btn-box { fill: #fff; }
+.ytpl-btn-on .ytpl-btn-text { fill: #0f0f0f; }
+.ytpl-btn-err .ytpl-btn-box { fill: #e33; stroke: #e33; }
+.ytpl-btn-err .ytpl-btn-text { fill: #fff; }
+/* thin progress bar under the icon while translating */
+.ytpl-btn-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 18%;
+  width: 20px;
+  height: 2px;
+  transform: translateX(-50%);
+  border-radius: 1px;
+  background: linear-gradient(to right, #2dd4bf var(--ytpl-pct, 0%), rgba(255, 255, 255, 0.25) var(--ytpl-pct, 0%));
+  display: none;
+  pointer-events: none;
+}
+.ytpl-btn-busy .ytpl-btn-bar { display: block; }

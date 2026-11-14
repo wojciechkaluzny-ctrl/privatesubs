@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Check that the tag matches the extension version
+        run: |
+          V=$(node -p "require('./extension/manifest.json').version")
+          P=$(node -p "require('./package.json').version")
+          test "v$V" = "$GITHUB_REF_NAME" || { echo "manifest.json version $V does not match tag $GITHUB_REF_NAME"; exit 1; }
+          test "$V" = "$P" || { echo "package.json version $P differs from manifest.json $V"; exit 1; }
+      - run: npm ci
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - run: npm run package
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V=${GITHUB_REF_NAME#v}
+          # release notes = this version's section of CHANGELOG.md
+          awk -v v="$V" '$0 ~ "^## \\[" v "\\]" {f=1; next} /^## \[/ {f=0} f' CHANGELOG.md > notes.md
+          gh release create "$GITHUB_REF_NAME" "dist/privatesubs-$V.zip" --title "PrivateSubs $V" --notes-file notes.md
