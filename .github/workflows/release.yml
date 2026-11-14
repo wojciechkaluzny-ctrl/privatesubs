@@ -41,10 +41,12 @@ jobs:
         run: |
           # release notes = this version's section of CHANGELOG.md
           awk -v v="$VERSION" '$0 ~ "^## \\[" v "\\]" {f=1; next} /^## \[/ {f=0} f' CHANGELOG.md > notes.md
+          # versioned file + fixed-name copy for the ".../releases/latest/download/privatesubs.zip" link
           ZIP="dist/privatesubs-$VERSION.zip"
+          LATEST="dist/privatesubs.zip"
           if gh release view "$TAG" >/dev/null 2>&1; then
-            gh release upload "$TAG" "$ZIP" --clobber
+            gh release upload "$TAG" "$ZIP" "$LATEST" --clobber
             gh release edit "$TAG" --title "PrivateSubs $VERSION" --notes-file notes.md
           else
-            gh release create "$TAG" "$ZIP" --target "$GITHUB_SHA" --title "PrivateSubs $VERSION" --notes-file notes.md
+            gh release create "$TAG" "$ZIP" "$LATEST" --target "$GITHUB_SHA" --title "PrivateSubs $VERSION" --notes-file notes.md
           fi

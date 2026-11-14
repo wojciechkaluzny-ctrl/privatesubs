@@ -1,4 +1,7 @@
-// Packs extension/ into dist/privatesubs-<version>.zip (manifest.json at the zip root),
+// Packs extension/ into dist/privatesubs-<version>.zip and dist/privatesubs.zip (manifest.json at the zip root).
+// The unversioned copy backs the stable "latest version" link:
+//   https://github.com/wojciechkaluzny-ctrl/privatesubs/releases/latest/download/privatesubs.zip
+// Both are
 // ready for "Load unpacked" (after extracting), GitHub Releases and the Chrome / Edge / Opera stores.
 // Pure Node.js – no dependencies, works on Windows, macOS and Linux.
 const fs = require("fs");
@@ -82,6 +85,9 @@ end.writeUInt16LE(count, 10);
 end.writeUInt32LE(centralBuf.length, 12);
 end.writeUInt32LE(offset, 16);
 
+const zip = Buffer.concat([...locals, centralBuf, end]);
+const LATEST = path.join(ROOT, "dist", "privatesubs.zip");
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
-fs.writeFileSync(OUT, Buffer.concat([...locals, centralBuf, end]));
-console.log(`${path.relative(ROOT, OUT)} (${count} files)`);
+fs.writeFileSync(OUT, zip);
+fs.writeFileSync(LATEST, zip);
+console.log(`${path.relative(ROOT, OUT)} + ${path.relative(ROOT, LATEST)} (${count} files)`);

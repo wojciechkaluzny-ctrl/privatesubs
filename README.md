@@ -9,6 +9,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/wojciechkaluzny-ctrl/privatesubs/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/wojciechkaluzny-ctrl/privatesubs?color=0d9488&label=release"></a>
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-0d9488"></a>
   <img alt="Manifest V3" src="https://img.shields.io/badge/manifest-v3-0d9488">
   <img alt="Chrome | Edge | Opera" src="https://img.shields.io/badge/browsers-Chrome%20%7C%20Edge%20%7C%20Opera-0d9488">
@@ -18,6 +19,35 @@
 <p align="center">
   <a href="README.pl.md">🇵🇱 Polska wersja</a>
 </p>
+
+<p align="center">
+  <a href="https://github.com/wojciechkaluzny-ctrl/privatesubs/releases/latest/download/privatesubs.zip"><b>⬇️ Download the latest version (ZIP)</b></a>
+  &nbsp;·&nbsp; <a href="https://github.com/wojciechkaluzny-ctrl/privatesubs/releases">All releases</a>
+</p>
+
+---
+
+## Installation (about 5 minutes)
+
+1. **[Download `privatesubs.zip`](https://github.com/wojciechkaluzny-ctrl/privatesubs/releases/latest/download/privatesubs.zip)** (always the latest version) and extract it to a folder you'll keep.
+   The browser loads the extension from this folder, so don't delete it.
+2. Open the extensions page and turn on **Developer mode**:
+
+   | Browser | Address | Developer mode switch |
+   |---|---|---|
+   | Chrome | `chrome://extensions` | top right |
+   | Edge | `edge://extensions` | left panel |
+   | Opera | `opera://extensions` | top right |
+
+3. Click **Load unpacked** and select the extracted folder (the one with `manifest.json`).
+4. The **setup wizard** opens by itself. It installs [Ollama](https://ollama.com) (a free app that runs AI models locally)
+   and downloads the translation model (≈3.3 GB) with a progress bar.
+5. Open a YouTube video with subtitles and click the language button (e.g. **EN**) next to the CC button. That's it.
+
+- **Updating:** download the ZIP again, replace the files in the same folder, then click the reload icon on the extension card.
+- **From source:** `git clone https://github.com/wojciechkaluzny-ctrl/privatesubs.git` and load the `extension/` folder.
+
+Requirements and details are in the [Requirements](#requirements) section below.
 
 ---
 
@@ -69,30 +99,6 @@ See [docs/how-it-works.md](docs/how-it-works.md) for the details.
 | **Model** | `translategemma:4b` (≈3.3 GB, default) or `translategemma:12b` (≈8 GB, better quality) |
 | **Hardware** | 4B runs on most computers, GPU recommended. 12B needs a graphics card with about 12 GB of memory |
 | **OS** | Windows, macOS, Linux (on Linux, Ollama is installed with one terminal command) |
-
-## Installation
-
-### From a release (recommended)
-
-1. Download `privatesubs-<version>.zip` from the [Releases](https://github.com/wojciechkaluzny-ctrl/privatesubs/releases) page.
-2. Extract it to a folder you'll keep. The browser loads the extension from this folder, so don't delete it.
-3. Load the extension:
-
-   | Browser | Steps |
-   |---|---|
-   | Chrome | `chrome://extensions` → turn on **Developer mode** (top right) → **Load unpacked** → select the folder |
-   | Edge | `edge://extensions` → turn on **Developer mode** (left panel) → **Load unpacked** → select the folder |
-   | Opera | `opera://extensions` → turn on **Developer mode** → **Load unpacked** → select the folder |
-
-4. The **setup wizard** opens automatically and walks you through installing Ollama and downloading the model.
-
-### From source
-
-```bash
-git clone https://github.com/wojciechkaluzny-ctrl/privatesubs.git
-```
-
-Then use **Load unpacked** and select the `extension/` folder.
 
 ## Usage
 
@@ -201,7 +207,7 @@ npm install                 # installs Playwright (for end-to-end tests)
 npx playwright install chromium
 npm test                    # unit tests: parsing, translation alignment, locale files
 npm run test:e2e            # loads the extension in Chromium against a fake YouTube page and a mock Ollama
-npm run package             # dist/privatesubs-<version>.zip
+npm run package             # dist/privatesubs-<version>.zip + dist/privatesubs.zip
 npm run screenshots         # regenerates docs/screenshots
 ```
 

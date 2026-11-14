@@ -9,6 +9,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/wojciechkaluzny-ctrl/privatesubs/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/wojciechkaluzny-ctrl/privatesubs?color=0d9488&label=wersja"></a>
   <a href="LICENSE"><img alt="Licencja: MIT" src="https://img.shields.io/badge/license-MIT-0d9488"></a>
   <img alt="Manifest V3" src="https://img.shields.io/badge/manifest-v3-0d9488">
   <img alt="Chrome | Edge | Opera" src="https://img.shields.io/badge/browsers-Chrome%20%7C%20Edge%20%7C%20Opera-0d9488">
@@ -18,6 +19,35 @@
 <p align="center">
   <a href="README.md">🇬🇧 English version</a>
 </p>
+
+<p align="center">
+  <a href="https://github.com/wojciechkaluzny-ctrl/privatesubs/releases/latest/download/privatesubs.zip"><b>⬇️ Pobierz najnowszą wersję (ZIP)</b></a>
+  &nbsp;·&nbsp; <a href="https://github.com/wojciechkaluzny-ctrl/privatesubs/releases">Wszystkie wydania</a>
+</p>
+
+---
+
+## Instalacja (ok. 5 minut)
+
+1. **[Pobierz `privatesubs.zip`](https://github.com/wojciechkaluzny-ctrl/privatesubs/releases/latest/download/privatesubs.zip)** (zawsze najnowsza wersja) i rozpakuj do stałego folderu.
+   Przeglądarka wczytuje wtyczkę z tego folderu, więc go nie usuwaj.
+2. Otwórz stronę rozszerzeń i włącz **Tryb dewelopera**:
+
+   | Przeglądarka | Adres | Przełącznik trybu dewelopera |
+   |---|---|---|
+   | Chrome | `chrome://extensions` | prawy górny róg |
+   | Edge | `edge://extensions` | panel po lewej |
+   | Opera | `opera://extensions` | prawy górny róg |
+
+3. Kliknij **Załaduj rozpakowane** i wskaż rozpakowany folder (ten z plikiem `manifest.json`).
+4. Sam otworzy się **kreator instalacji**. Zainstaluje [Ollamę](https://ollama.com) (darmową aplikację do lokalnego uruchamiania modeli AI)
+   i pobierze model tłumaczący (≈3,3 GB) z paskiem postępu.
+5. Otwórz film na YouTube z napisami i kliknij przycisk z kodem języka (np. **PL**) obok przycisku napisów. Gotowe.
+
+- **Aktualizacja:** pobierz ZIP ponownie, podmień pliki w tym samym folderze i kliknij ikonę odświeżania na karcie wtyczki.
+- **Ze źródeł:** `git clone https://github.com/wojciechkaluzny-ctrl/privatesubs.git` i wczytaj folder `extension/`.
+
+Wymagania i szczegóły znajdziesz niżej w sekcji [Wymagania](#wymagania).
 
 ---
 
@@ -69,30 +99,6 @@ Szczegóły znajdziesz w [docs/how-it-works.md](docs/how-it-works.md) (po angiel
 | **Model** | `translategemma:4b` (≈3,3 GB, domyślny) lub `translategemma:12b` (≈8 GB, lepsza jakość) |
 | **Sprzęt** | Model 4B działa na większości komputerów, zalecana karta graficzna. Model 12B potrzebuje karty z ok. 12 GB pamięci |
 | **System** | Windows, macOS, Linux (na Linuksie Ollamę instaluje się jedną komendą w terminalu) |
-
-## Instalacja
-
-### Z wydania (zalecane)
-
-1. Pobierz `privatesubs-<wersja>.zip` ze strony [Releases](https://github.com/wojciechkaluzny-ctrl/privatesubs/releases).
-2. Rozpakuj go do stałego folderu. Przeglądarka wczytuje wtyczkę z tego folderu, więc go nie usuwaj.
-3. Wczytaj wtyczkę:
-
-   | Przeglądarka | Kroki |
-   |---|---|
-   | Chrome | `chrome://extensions` → włącz **Tryb dewelopera** (prawy górny róg) → **Załaduj rozpakowane** → wskaż folder |
-   | Edge | `edge://extensions` → włącz **Tryb dewelopera** (panel po lewej) → **Załaduj rozpakowane** → wskaż folder |
-   | Opera | `opera://extensions` → włącz **Tryb dewelopera** → **Załaduj rozpakowane** → wskaż folder |
-
-4. Sam otworzy się **kreator instalacji**, który przeprowadzi Cię przez instalację Ollamy i pobranie modelu.
-
-### Ze źródeł
-
-```bash
-git clone https://github.com/wojciechkaluzny-ctrl/privatesubs.git
-```
-
-Potem **Załaduj rozpakowane** i wskaż folder `extension/`.
 
 ## Użytkowanie
 
