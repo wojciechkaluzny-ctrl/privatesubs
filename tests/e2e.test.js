@@ -109,7 +109,10 @@ const TRACK = JSON.stringify({ events: [
 
   // click PL again → off: overlay gone, YouTube captions back
   await page.click(".ytpl-btn");
-  await page.waitForTimeout(300);
+  await page.waitForFunction(() =>
+    getComputedStyle(document.querySelector(".ytpl-overlay")).display === "none" &&
+    getComputedStyle(document.getElementById("native")).visibility !== "hidden" &&
+    !document.querySelector(".ytpl-btn").classList.contains("ytpl-btn-on"), null, { timeout: 5000 }).catch(() => {});
   const off = await page.evaluate(() => ({
     overlay: getComputedStyle(document.querySelector(".ytpl-overlay")).display,
     nativeHidden: getComputedStyle(document.getElementById("native")).visibility === "hidden",
