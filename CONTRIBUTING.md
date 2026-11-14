@@ -51,5 +51,6 @@ or run them on a machine without Ollama.
 ## Releasing (maintainers)
 
 1. Update the version in `extension/manifest.json` **and** `package.json`, and add a section to `CHANGELOG.md`.
-2. Commit and tag: `git tag v1.2.3 && git push --tags`.
-3. The **Release** workflow runs the tests, builds `privatesubs-<version>.zip` and attaches it to a GitHub release.
+2. Commit and push to `main`.
+3. Publish: either push a tag (`git tag v1.2.3 && git push --tags`) or open **Actions → Release → Run workflow**.
+   The workflow runs the tests, builds `privatesubs-<version>.zip` and publishes a GitHub release with notes from `CHANGELOG.md`.
